@@ -3,8 +3,8 @@
  */
 public class MyString {
     public static void main(String args[]) {
-        String hello = "hello";
-        System.out.println(countChar(hello, 'h'));
+        //String hello = "hello";
+      /*   System.out.println(countChar(hello, 'h'));
         System.out.println(countChar(hello, 'l'));
         System.out.println(countChar(hello, 'z'));
         System.out.println(spacedString(hello));
@@ -19,15 +19,16 @@ public class MyString {
         System.out.println(randomStringOfLetters(7));
         System.out.println(randomStringOfLetters(0));
         System.out.println(randomStringOfLetters(1));
-        System.out.println(remove("sap","space")); //ce
-        System.out.println(remove("spa","space")); //ce
-        System.out.println(remove("pass","space")); //ce
-        System.out.println(remove("c","space")); //spae
-        System.out.println(remove("space","space")); //space
-        System.out.println(remove("","space")); //space
-        System.out.println(insertRandomly('!',"space")); //space
-        System.out.println(insertRandomly(' ',"space")); //space
-        System.out.println(insertRandomly('i',"space")); //space
+        */
+        System.out.println(remove("committee","meet")); //ce
+        //System.out.println(remove("spa","space")); //ce
+        //System.out.println(remove("pass","space")); //ce
+        //System.out.println(remove("c","space")); //spae
+        //System.out.println(remove("space","space")); //space
+        //System.out.println(remove("","space")); //space
+        //System.out.println(insertRandomly('!',"space")); //space
+       // System.out.println(insertRandomly(' ',"space")); //space
+       // System.out.println(insertRandomly('i',"space")); //space
     }
 
     /**
@@ -158,17 +159,26 @@ public class MyString {
     public static String remove(String str1, String str2) {
         String newS1="";
         boolean bingo=false;
-       for(int i=0;i<str2.length();i++)
+        Boolean[] str2B=new Boolean[str2.length()];
+        for(int i=0;i<str2B.length;i++)
        {
-            for(int j=0;j<str1.length();j++)
-            {
-                if (str1.charAt(j)==str2.charAt(i)) 
+        str2B[i]=false;
+       }
+       for(int i=0;i<str1.length();i++)
+       {
+            for(int j=0;j<str2.length();j++)
+            {          
+                if (str2.charAt(j)==str1.charAt(i)&&!str2B[j]) 
                 {
+                    str2B[j]=true;
                     bingo=true;
+                    break;
                 }
             }
             if (!bingo)
-            newS1+=str2.charAt(i);
+            {
+            newS1+=str1.charAt(i);
+            }
             bingo=false;
        }
         return newS1;
