@@ -1,5 +1,6 @@
 /*
  * RUNI version of the Scrabble game.
+ * 
  */
 
 import java.util.Dictionary;
