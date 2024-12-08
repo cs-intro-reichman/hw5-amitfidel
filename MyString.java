@@ -8,20 +8,21 @@ public class MyString {
         System.out.println(countChar(hello, 'l'));
         System.out.println(countChar(hello, 'z'));
         System.out.println(spacedString(hello));
+        */
         System.out.println(subsetOf("sap","space")); //returns true
         System.out.println(subsetOf("spa","space")); //returns true
         System.out.println(subsetOf("pass","space")); //returns false
         System.out.println(subsetOf("c","space")); //returns true
-        System.out.println(spacedString("abcd")); //"a b c d"
-        System.out.println(spacedString(""));
-        System.out.println(spacedString("a"));
-        System.out.println(spacedString("abcd s"));
-        System.out.println(randomStringOfLetters(7));
-        System.out.println(randomStringOfLetters(0));
-        System.out.println(randomStringOfLetters(1));
-        */
+        //System.out.println(spacedString("abcd")); //"a b c d"
+        //System.out.println(spacedString(""));
+        //System.out.println(spacedString("a"));
+        //System.out.println(spacedString("abcd s"));
+        //System.out.println(randomStringOfLetters(7));
+        //System.out.println(randomStringOfLetters(0));
+        //System.out.println(randomStringOfLetters(1));
+        
         //System.out.println(subsetOf("runi","runing"));
-        System.out.println(remove("h a l c c a x t e t","cat")); //ce
+        //System.out.println(remove("h a l c c a x t e t","cat")); //ce
         //System.out.println(remove("spa","space")); //ce
         //System.out.println(remove("pass","space")); //ce
         //System.out.println(remove("c","space")); //spae
@@ -72,28 +73,34 @@ public class MyString {
         }
         for(int i=0;i<str2.length();i++)
         {
-            if(str2.charAt(i)==str1.charAt(0))
-            {
-                l1[0]=true;
-                for(int j=1;j<str1.length();j++)
+            //if(str2.charAt(i)==str1.charAt(0))
+            //{
+                //l1[0]=true;
+                for(int j=0;j<str1.length();j++)
                 {
-                    if (str2.charAt(i+j)!=str1.charAt(j)) 
+                    
+                    if (str2.charAt(i)==str1.charAt(j)) 
                     {
-                        for(int s=0;s<l1.length;s++)
-                            {
-                                 l1[i]=false;
-                            }
+                        l1[j]=true;
                         break;
                     }
-                    l1[j]=true;
+                    //for(int s=0;s<l1.length;s++)
+                       //     {
+                                 //l1[i]=false;
+                        //    }
+                        //break;
                 }
-                if (l1[l1.length-1]==true) 
-                {
-                    return true;
-                }
-            }
+                
+            //}
         }
-        return false;
+        for(int j=0;j<str1.length();j++)
+                {
+                    if (l1[j]==false) 
+                {
+                    return false;
+                }
+                }
+                return true;
     }
 
     /** Returns a string which is the same as the given string, with a space
