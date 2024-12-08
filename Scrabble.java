@@ -75,8 +75,8 @@ public class Scrabble {
 				if(abc==word.charAt(i))
 				score+=SCRABBLE_LETTER_VALUES[j];
 			}
-			score=score*word.length();
 		}
+		score=score*word.length();
 		if(word.length()==HAND_SIZE)
 		{
 			score+=50;
@@ -166,10 +166,10 @@ public class Scrabble {
 	public static void main(String[] args) {
 		//// Uncomment the test you want to run
 		//testBuildingTheDictionary();  
-		//testScrabbleScore();    
+		testScrabbleScore();    
 		//testCreateHands();  
 		//testPlayHands();
-		playGame();
+		//playGame();
 	}
 
 	public static void testBuildingTheDictionary() {
@@ -182,11 +182,12 @@ public class Scrabble {
 	}
 	
 	public static void testScrabbleScore() {
-		System.out.println(wordScore("bee"));	
+		System.out.println(wordScore("dog"));	
+		System.out.println(wordScore("quiz"));	
 		System.out.println(wordScore("babe"));
 		System.out.println(wordScore("friendship"));
 		System.out.println(wordScore("running"));
-		System.out.println(wordScore("runing"));
+		System.out.println(wordScore(""));
 	}
 	
 	public static void testCreateHands() {
