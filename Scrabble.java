@@ -75,6 +75,7 @@ public class Scrabble {
 				if(abc==word.charAt(i))
 				score+=SCRABBLE_LETTER_VALUES[j];
 			}
+			score=score*word.length();
 		}
 		if(word.length()==HAND_SIZE)
 		{
@@ -104,6 +105,7 @@ public class Scrabble {
 	public static void playHand(String hand) {
 		int n = hand.length();
 		int score = 0;
+		int thisScore=0;
 		// Declares the variable in to refer to an object of type In, and initializes it to represent
 		// the stream of characters coming from the keyboard. Used for reading the user's inputs.   
 		In in = new In();
@@ -114,15 +116,20 @@ public class Scrabble {
 			// non-whitespace characters. Whitespace is either space characters, or  
 			// end-of-line characters.
 			String input = in.readString();
-			if (isWordInDictionary(input)) 
-			{
-				score+=wordScore(input);
-				hand=MyString.remove(hand,input);
-			}
 			if (input.equals(".")) 
-			{
-			break;	
-			}
+				{
+					break;	
+				}
+			if (isWordInDictionary(input)) 
+				{
+					thisScore=wordScore(input);
+					score+=thisScore;
+					hand=MyString.remove(hand,input);
+					System.out.println(input+" earned "+thisScore+" points. Score: "+score+" points");
+				}
+			else
+			System.out.println("No such word in the dictionary. Try again.");
+			
 		}
 		if (hand.length() == 0) {
 	        System.out.println("Ran out of letters. Total score: " + score + " points");
@@ -162,7 +169,7 @@ public class Scrabble {
 		//testScrabbleScore();    
 		//testCreateHands();  
 		//testPlayHands();
-		//playGame();
+		playGame();
 	}
 
 	public static void testBuildingTheDictionary() {
