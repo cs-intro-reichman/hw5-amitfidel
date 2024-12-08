@@ -74,9 +74,6 @@ public class MyString {
         }
         for(int i=0;i<str2.length();i++)
         {
-            //if(str2.charAt(i)==str1.charAt(0))
-            //{
-                //l1[0]=true;
                 for(int j=0;j<str1.length();j++)
                 {
                     
@@ -85,14 +82,7 @@ public class MyString {
                         l1[j]=true;
                         break;
                     }
-                    //for(int s=0;s<l1.length;s++)
-                       //     {
-                                 //l1[i]=false;
-                        //    }
-                        //break;
                 }
-                
-            //}
         }
         for(int j=0;j<str1.length();j++)
                 {
