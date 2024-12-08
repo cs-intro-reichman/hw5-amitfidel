@@ -15,7 +15,6 @@ public class Scrabble {
 
 	// Dictionary file for this Scrabble game
 	static final String WORDS_FILE = "dictionary.txt";
-
 	// The "Scrabble value" of each letter in the English alphabet.
 	// 'a' is worth 1 point, 'b' is worth 3 points, ..., z is worth 10 points.
 	static final int[] SCRABBLE_LETTER_VALUES = { 1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3,
@@ -54,7 +53,7 @@ public class Scrabble {
 	public static boolean isWordInDictionary(String word) {
 		for(int i=0;i<DICTIONARY.length;i++)
 		{
-			if (word==DICTIONARY[i]) 
+			if (word.equals(DICTIONARY[i])) 
 			{
 				return true;
 			}
@@ -67,11 +66,13 @@ public class Scrabble {
 	// If the word includes the sequence "runi", adds 1000 points to the game.
 	public static int wordScore(String word) {
 		int score=0;
+		char abc;
 		for(int i=0;i<word.length();i++)
 		{
 			for(int j=0;j<26;j++)
 			{	
-				if(SCRABBLE_LETTER_VALUES[j]==word.charAt(i))
+				abc=(char)(j+97);
+				if(abc==word.charAt(i))
 				score+=SCRABBLE_LETTER_VALUES[j];
 			}
 		}
@@ -116,9 +117,9 @@ public class Scrabble {
 			if (isWordInDictionary(input)) 
 			{
 				score+=wordScore(input);
-				MyString.remove(hand,input);
+				hand=MyString.remove(hand,input);
 			}
-			if (input==".") 
+			if (input.equals(".")) 
 			{
 			break;	
 			}
@@ -144,11 +145,11 @@ public class Scrabble {
 			// Gets the user's input, which is all the characters entered by 
 			// the user until the user enter the ENTER character.
 			String input = in.readString();
-			if (input=="e") 
+			if (input.equals("e")) 
 			{
 			break;	
 			}
-			if (input=="n") 
+			if (input.equals("n")) 
 			{
 			playHand(createHand());	
 			}
@@ -157,11 +158,11 @@ public class Scrabble {
 
 	public static void main(String[] args) {
 		//// Uncomment the test you want to run
-		testBuildingTheDictionary();  
-		////testScrabbleScore();    
-		////testCreateHands();  
-		////testPlayHands();
-		////playGame();
+		//testBuildingTheDictionary();  
+		//testScrabbleScore();    
+		//testCreateHands();  
+		//testPlayHands();
+		//playGame();
 	}
 
 	public static void testBuildingTheDictionary() {
@@ -178,6 +179,7 @@ public class Scrabble {
 		System.out.println(wordScore("babe"));
 		System.out.println(wordScore("friendship"));
 		System.out.println(wordScore("running"));
+		System.out.println(wordScore("runing"));
 	}
 	
 	public static void testCreateHands() {
@@ -187,8 +189,8 @@ public class Scrabble {
 	}
 	public static void testPlayHands() {
 		init();
-		//playHand("ocostrza");
-		//playHand("arbffip");
-		//playHand("aretiin");
+		playHand("ocostrza");
+		playHand("arbffip");
+		playHand("aretiin");
 	}
 }

@@ -20,7 +20,8 @@ public class MyString {
         System.out.println(randomStringOfLetters(0));
         System.out.println(randomStringOfLetters(1));
         */
-        System.out.println(remove("committee","meet")); //ce
+        //System.out.println(subsetOf("runi","runing"));
+        System.out.println(remove("h a l c c a x t e t","cat")); //ce
         //System.out.println(remove("spa","space")); //ce
         //System.out.println(remove("pass","space")); //ce
         //System.out.println(remove("c","space")); //spae
@@ -62,47 +63,37 @@ public class MyString {
      * @param str2 - a string
      * @return true is str1 is a subset of str2, false otherwise
      */
-    public static boolean subsetOf(String str1, String str2) {
-        char[] letter=new char[str2.length()];
-        int[] countL=new int[str2.length()];
-        boolean b=false;
-        int counter=0;
-        if(str1.length()>str2.length())
+    public static boolean subsetOf(String str1, String str2) 
+    {
+        boolean[]l1= new boolean[str1.length()];
+        for(int i=0;i<l1.length;i++)
         {
-            return false;
+            l1[i]=false;
         }
         for(int i=0;i<str2.length();i++)
         {
-            b=false;
-            for(int j=0;j<i;j++)
+            if(str2.charAt(i)==str1.charAt(0))
             {
-                if(letter[i]!=str2.charAt(j))
+                l1[0]=true;
+                for(int j=1;j<str1.length();j++)
                 {
-                    letter[i]=str2.charAt(j);
-                    countL[i]=countChar(str2, str2.charAt(i));
+                    if (str2.charAt(i+j)!=str1.charAt(j)) 
+                    {
+                        for(int s=0;s<l1.length;s++)
+                            {
+                                 l1[i]=false;
+                            }
+                        break;
+                    }
+                    l1[j]=true;
+                }
+                if (l1[l1.length-1]==true) 
+                {
+                    return true;
                 }
             }
         }
-        for(int i=0;i<str1.length();i++)
-        {
-            for(int j=0;j<str1.length();j++)
-            {
-                if (str1.charAt(j)==letter[i]) 
-                {
-                    if (countL[i]<countChar(str1, str1.charAt(j)))
-                    {
-                        return false;
-                    }
-                    else
-                        counter++;
-                }
-            }  
-            if (counter==str1.length()) 
-            {
-                return true;
-            } 
-        }
-        return true;
+        return false;
     }
 
     /** Returns a string which is the same as the given string, with a space
