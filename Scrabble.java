@@ -123,7 +123,8 @@ public class Scrabble {
 					thisScore=wordScore(input);
 					score+=thisScore;
 					hand=MyString.remove(hand,input);
-					System.out.println(input+" earned "+thisScore+" points. Score: "+score+" points");
+					System.out.println(input+" earned "+thisScore+" points. Score: "+score+" points\n");
+					
 				}
 			else
 			System.out.println("Invalid word. Try again.");
@@ -164,10 +165,10 @@ public class Scrabble {
 	public static void main(String[] args) {
 		//// Uncomment the test you want to run
 		//testBuildingTheDictionary();  
-		testScrabbleScore();    
+		//testScrabbleScore();    
 		//testCreateHands();  
 		//testPlayHands();
-		//playGame();
+		playGame();
 	}
 
 	public static void testBuildingTheDictionary() {
